@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto - Consultoría R&M</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --rojo-principal: #B00000;
+  --rojo-oscuro: #7A0000;
+  --rojo-claro: #E53935;
+  --gris-oscuro: #2E2E2E;
+  --gris-claro: #F7F7F7;
+  --blanco: #FFFFFF;
+  --gris-medio: #E0E0E0;
+  --dorado: #D4AF37;
+  --azul-profesional: #1A237E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--gris-oscuro);
+  line-height: 1.7;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #f1f3f5 50%, #e9ecef 75%, #f8f9fa 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo-principal), var(--gris-oscuro));
+  color: var(--blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  animation: fadeDown 1.2s ease;
+  border-bottom: 5px solid var(--dorado);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, var(--blanco), var(--dorado));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Navegación */
+nav {
+  background: linear-gradient(135deg, var(--blanco), var(--gris-claro));
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--rojo-principal);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--rojo-principal);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo i {
+  color: var(--dorado);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--rojo-principal);
+  font-weight: 600;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.nav-link:hover {
+  color: var(--rojo-oscuro);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--rojo-principal);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--blanco);
+  min-width: 220px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  z-index: 1;
+  padding: 0.5rem 0;
+  border-top: 3px solid var(--rojo-principal);
+  animation: fadeIn 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: var(--gris-oscuro);
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(176,0,0,0.05);
+  color: var(--rojo-principal);
+  border-left: 3px solid var(--rojo-principal);
+  padding-left: 1.5rem;
+}
+
+.dropdown-content a i {
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Main */
+main {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+/* Hero */
+.hero-contacto {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 5rem 3rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.hero-contacto h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--dorado);
+  border: none;
+}
+
+.hero-contacto p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Secciones */
+section {
+  background: var(--blanco);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-left: 6px solid var(--rojo-principal);
+  transition: transform 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+}
+
+h2 {
+  color: var(--rojo-principal);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--gris-medio);
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, var(--rojo-principal), var(--dorado));
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+}
+
+.contact-info {
+  background: linear-gradient(135deg, #f9f9f9, white);
+  padding: 2rem;
+  border-radius: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.contact-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--rojo-principal), var(--rojo-claro));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.contact-details h3 {
+  color: var(--azul-profesional);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.contact-details p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.contact-details a {
+  color: var(--rojo-principal);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+  color: var(--rojo-oscuro);
+  text-decoration: underline;
+}
+
+/* Formulario */
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--gris-oscuro);
+}
+
+.form-group label i {
+  color: var(--rojo-principal);
+  margin-right: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--gris-medio);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--rojo-principal);
+  box-shadow: 0 0 0 3px rgba(176,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--rojo-principal), var(--rojo-claro));
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo-principal));
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(176,0,0,0.2);
+}
+
+/* Mapa */
+.mapa-container {
+  width: 100%;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.mapa-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Horarios */
+.horarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.horario-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f9f9f9, white);
+  border-radius: 10px;
+}
+
+.horario-card i {
+  font-size: 2rem;
+  color: var(--rojo-principal);
+  margin-bottom: 1rem;
+}
+
+.horario-card h3 {
+  color: var(--azul-profesional);
+  margin-bottom: 0.5rem;
+}
+
+/* Mensajes */
+.mensaje {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease;
+}
+
+.mensaje.exito {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.mensaje.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo-principal), var(--gris-oscuro));
+  color: var(--blanco);
+  padding: 4rem 2rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--dorado);
+}
+
+.footer-section h3 {
+  color: var(--dorado);
+  margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: var(--dorado);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: var(--dorado);
+  transform: translateY(-3px);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  
+  .hero-contacto h2 {
+    font-size: 2rem;
+  }
+  
+  section {
+    padding: 2rem;
+  }
+  
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1><i class="fas fa-envelope"></i> Contacto</h1>
+  <p>Estamos aquí para ayudarle</p>
+</header>
+
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo">
+      <i class="fas fa-chart-line"></i>
+      <span>R&M Consultoría</span>
+    </div>
+    
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+      
+      <li class="dropdown">
+        <a href="#" class="nav-link">
+          <i class="fas fa-cogs"></i> Servicios <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-content">
+          <a href="servicios.html"><i class="fas fa-chart-bar"></i> Planeamiento Estratégico</a>
+          <a href="servicios.html"><i class="fas fa-project-diagram"></i> Optimización de Procesos</a>
+          <a href="servicios.html"><i class="fas fa-file-contract"></i> Sistemas ISO</a>
+          <a href="servicios.html"><i class="fas fa-digital-tachograph"></i> Transformación Digital</a>
+        </div>
+      </li>
+      
+      <li><a href="nosotros.html" class="nav-link"><i class="fas fa-users"></i> Nosotros</a></li>
+      <li><a href="contacto.html" class="nav-link" style="color: var(--rojo-oscuro); font-weight: 700;"><i class="fas fa-envelope"></i> Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="hero-contacto">
+    <h2>Comuníquese con Nosotros</h2>
+    <p>Respondemos en menos de 24 horas</p>
+  </div>
+
+  <section>
+    <h2>Información de Contacto</h2>
+    
+    <div id="mensajeContainer" style="margin-bottom: 1rem;"></div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Teléfono</h3>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/51940534144">+51 940 534 144</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Correo Electrónico</h3>
+            <p><strong>Información general:</strong> <a href="mailto:fromanim@gmail.com">fromanim@gmail.com</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Horario de Atención</h3>
+            <p><strong>Lunes a Viernes:</strong> 8:00 AM - 6:00 PM</p>
+            <p><strong>Sábados:</strong> 9:00 AM - 1:00 PM</p>
+            <p><strong>Domingos:</strong> Cerrado</p>
+          </div>
+        </div>
+        
+        <div style="margin-top: 2rem;">
+          <h3 style="color: var(--azul-profesional); margin-bottom: 1rem;">Síguenos en redes</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form">
+        <h3 style="color: var(--azul-profesional); margin-bottom: 1.5rem;">Envíenos un mensaje</h3>
+        
+        <form id="formContacto" onsubmit="return enviarFormContacto(event)">
+          <input type="hidden" name="_subject" value="📧 Nuevo mensaje desde formulario web - R&M Consultoría">
+          <input type="hidden" name="_template" value="table">
+          
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> Nombre completo *</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre y apellidos" required>
+          </div>
+          
+          <div class="form-group">
+            <label><i class="fas fa-envelope"></i> Correo electrónico *</label>
+            <input type="email" class="form-control" id="correo" name="correo" placeholder="ejemplo@empresa.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label><i class="fas fa-phone"></i> Teléfono / WhatsApp *</label>
+            <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+51 999 999 999" required>
+          </div>
+          
+          <div class="form-group">
+            <label><i class="fas fa-building"></i> Empresa</label>
+            <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Nombre de su empresa">
+          </div>
+          
+          <div class="form-group">
+            <label><i class="fas fa-tag"></i> Servicio de interés</label>
+            <select class="form-control" id="interes" name="interes">
+              <option value="">Seleccione un servicio</option>
+              <option value="Planeamiento Estratégico">Planeamiento Estratégico</option>
+              <option value="Optimización de Procesos">Optimización de Procesos</option>
+              <option value="ISO 9001">ISO 9001</option>
+              <option value="ISO 27001">ISO 27001</option>
+              <option value="ISO 19650">ISO 19650</option>
+              <option value="Transformación Digital">Transformación Digital</option>
+              <option value="Capacitación">Capacitación</option>
+              <option value="Auditoría">Auditoría</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label><i class="fas fa-comment"></i> Mensaje *</label>
+            <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Describa cómo podemos ayudarle, su consulta o proyecto" required></textarea>
+          </div>
+          
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="">
+          <input type="hidden" name="_autoresponse" value="Gracias por contactarnos. Hemos recibido su mensaje y nos comunicaremos con usted a la brevedad.">
+          
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Horarios de Atención</h2>
+    <div class="horarios-grid">
+      <div class="horario-card">
+        <i class="fas fa-calendar-alt"></i>
+        <h3>Lunes - Viernes</h3>
+        <p>8:00 AM - 6:00 PM</p>
+        <p style="color: #666; margin-top: 0.5rem;">Atención presencial y virtual</p>
+      </div>
+      
+      <div class="horario-card">
+        <i class="fas fa-calendar-alt"></i>
+        <h3>Sábados</h3>
+        <p>9:00 AM - 1:00 PM</p>
+        <p style="color: #666; margin-top: 0.5rem;">Solo atención virtual</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <div class="footer-logo">R&M</div>
+      <p style="margin-bottom: 1rem;">Transformamos organizaciones a través de la excelencia en gestión por procesos.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Enlaces Rápidos</h3>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <ul>
+        <li><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> +51 940 534 144</li>
+        <li><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> fromanim@gmail.com</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="copyright">
+    <p>&copy; 2025 Consultoría R&M. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script>
+// CONFIGURACIÓN - CAMBIA ESTOS VALORES
+const EMAIL_DESTINO = "fromanim@gmail.com"; // CAMBIA POR TU EMAIL
+
+// Configurar formulario
+document.getElementById('formContacto').action = `https://formsubmit.co/${EMAIL_DESTINO}`;
+
+// Mostrar mensaje
+function mostrarMensaje(texto, tipo) {
+    const container = document.getElementById('mensajeContainer');
+    container.innerHTML = `<div class="mensaje ${tipo}">${texto}</div>`;
+    setTimeout(() => {
+        container.innerHTML = '';
+    }, 5000);
+}
+
+// Validar email
+function validarEmail(email) {
+    return email.includes('@') && email.includes('.') && email.length > 5;
+}
+
+// Enviar formulario de contacto
+function enviarFormContacto(event) {
+    event.preventDefault();
+    const form = document.getElementById('formContacto');
+    
+    // Validar campos requeridos
+    const nombre = document.getElementById('nombre').value;
+    const correo = document.getElementById('correo').value;
+    const telefono = document.getElementById('telefono').value;
+    const mensaje = document.getElementById('mensaje').value;
+    
+    if (!nombre || !correo || !telefono || !mensaje) {
+        mostrarMensaje('❌ Debe completar todos los campos obligatorios', 'error');
+        return false;
+    }
+    
+    if (!validarEmail(correo)) {
+        mostrarMensaje('❌ Ingrese un correo electrónico válido', 'error');
+        return false;
+    }
+    
+    mostrarMensaje('⏳ Enviando mensaje...', 'exito');
+    
+    // Enviar con FormSubmit
+    form.submit();
+    mostrarMensaje('✅ ¡Mensaje enviado con éxito! Nos comunicaremos pronto.', 'exito');
+    form.reset();
+    return false;
+}
+
+// Validar email en tiempo real
+document.getElementById('correo')?.addEventListener('blur', function() {
+    if (this.value && !validarEmail(this.value)) {
+        this.style.borderColor = 'red';
+    } else {
+        this.style.borderColor = '';
+    }
+});
+
+// Limpiar errores al escribir
+document.querySelectorAll('.form-control').forEach(elemento => {
+    elemento.addEventListener('input', function() {
+        this.style.borderColor = '';
+    });
+});
+</script>
+
+</body>
+</html>
