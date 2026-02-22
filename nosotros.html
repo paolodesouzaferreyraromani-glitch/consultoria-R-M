@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosotros - Consultoría R&M</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --rojo-principal: #B00000;
+  --rojo-oscuro: #7A0000;
+  --rojo-claro: #E53935;
+  --gris-oscuro: #2E2E2E;
+  --gris-claro: #F7F7F7;
+  --blanco: #FFFFFF;
+  --gris-medio: #E0E0E0;
+  --dorado: #D4AF37;
+  --azul-profesional: #1A237E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--gris-oscuro);
+  line-height: 1.7;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #f1f3f5 50%, #e9ecef 75%, #f8f9fa 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo-principal), var(--gris-oscuro));
+  color: var(--blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  animation: fadeDown 1.2s ease;
+  border-bottom: 5px solid var(--dorado);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, var(--blanco), var(--dorado));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Navegación */
+nav {
+  background: linear-gradient(135deg, var(--blanco), var(--gris-claro));
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--rojo-principal);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--rojo-principal);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo i {
+  color: var(--dorado);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--rojo-principal);
+  font-weight: 600;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.nav-link:hover {
+  color: var(--rojo-oscuro);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--rojo-principal);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--blanco);
+  min-width: 220px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  z-index: 1;
+  padding: 0.5rem 0;
+  border-top: 3px solid var(--rojo-principal);
+  animation: fadeIn 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: var(--gris-oscuro);
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(176,0,0,0.05);
+  color: var(--rojo-principal);
+  border-left: 3px solid var(--rojo-principal);
+  padding-left: 1.5rem;
+}
+
+.dropdown-content a i {
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Main */
+main {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+/* Hero Section */
+.hero-nosotros {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 5rem 3rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-nosotros h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--dorado);
+  border: none;
+}
+
+.hero-nosotros p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Secciones */
+section {
+  background: var(--blanco);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-left: 6px solid var(--rojo-principal);
+  transition: transform 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+}
+
+h2 {
+  color: var(--rojo-principal);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--gris-medio);
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, var(--rojo-principal), var(--dorado));
+}
+
+/* Grid de valores */
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.valor-card {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f9f9f9, white);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.valor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(176,0,0,0.1);
+}
+
+.valor-icon {
+  font-size: 2.5rem;
+  color: var(--rojo-principal);
+  margin-bottom: 1rem;
+}
+
+.valor-card h3 {
+  color: var(--azul-profesional);
+  margin-bottom: 1rem;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-year {
+  min-width: 100px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--rojo-principal);
+  background: linear-gradient(135deg, var(--rojo-claro), var(--rojo-principal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.timeline-content {
+  padding-left: 2rem;
+  border-left: 3px solid var(--rojo-claro);
+  position: relative;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rojo-principal), var(--dorado));
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.team-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-img {
+  transform: scale(1.05);
+}
+
+.team-info {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.team-info h3 {
+  color: var(--azul-profesional);
+  margin-bottom: 0.5rem;
+}
+
+.team-position {
+  color: var(--rojo-principal);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.team-social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.team-social a {
+  color: var(--gris-oscuro);
+  transition: all 0.3s ease;
+}
+
+.team-social a:hover {
+  color: var(--rojo-principal);
+  transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo-principal), var(--gris-oscuro));
+  color: var(--blanco);
+  padding: 4rem 2rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--dorado);
+}
+
+.footer-section h3 {
+  color: var(--dorado);
+  margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: var(--dorado);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: var(--dorado);
+  transform: translateY(-3px);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  
+  .hero-nosotros h2 {
+    font-size: 2rem;
+  }
+  
+  section {
+    padding: 2rem;
+  }
+  
+  .timeline-item {
+    flex-direction: column;
+  }
+  
+  .timeline-year {
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-content {
+    padding-left: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1><i class="fas fa-users"></i> Nosotros</h1>
+  <p>Conozca más sobre Consultoría R&M</p>
+</header>
+
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo">
+      <i class="fas fa-chart-line"></i>
+      <span>R&M Consultoría</span>
+    </div>
+    
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+      
+      <li class="dropdown">
+        <a href="#" class="nav-link">
+          <i class="fas fa-cogs"></i> Servicios <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-content">
+          <a href="servicios.html"><i class="fas fa-chart-bar"></i> Planeamiento Estratégico</a>
+          <a href="servicios.html"><i class="fas fa-project-diagram"></i> Optimización de Procesos</a>
+          <a href="servicios.html"><i class="fas fa-file-contract"></i> Sistemas ISO</a>
+          <a href="servicios.html"><i class="fas fa-digital-tachograph"></i> Transformación Digital</a>
+        </div>
+      </li>
+      
+      <li><a href="nosotros.html" class="nav-link" style="color: var(--rojo-oscuro); font-weight: 700;"><i class="fas fa-users"></i> Nosotros</a></li>
+      <li><a href="contacto.html" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="hero-nosotros">
+    <h2>Transformando Empresas</h2>
+    <p>Somos una consultoría de gestión por procesos</p>
+  </div>
+
+  <section>
+    <h2>Nuestra Misión y Visión</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <div style="padding: 2rem; background: linear-gradient(135deg, #f9f9f9, white); border-radius: 15px;">
+        <i class="fas fa-bullseye" style="font-size: 2.5rem; color: var(--rojo-principal); margin-bottom: 1rem;"></i>
+        <h3 style="color: var(--azul-profesional); margin-bottom: 1rem;">Misión</h3>
+        <p>Ayudar a las organizaciones a alcanzar su máximo potencial mediante la implementación de sistemas de gestión eficientes, innovadores y sostenibles, generando valor duradero para nuestros clientes y la sociedad.</p>
+      </div>
+      
+      <div style="padding: 2rem; background: linear-gradient(135deg, #f9f9f9, white); border-radius: 15px;">
+        <i class="fas fa-eye" style="font-size: 2.5rem; color: var(--rojo-principal); margin-bottom: 1rem;"></i>
+        <h3 style="color: var(--azul-profesional); margin-bottom: 1rem;">Visión</h3>
+        <p>Ser la consultora líder en gestión por procesos en Latinoamérica, reconocida por nuestra excelencia, innovación y capacidad de transformar organizaciones hacia la excelencia operativa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Nuestros Valores</h2>
+    <div class="valores-grid">
+      <div class="valor-card">
+        <div class="valor-icon"><i class="fas fa-handshake"></i></div>
+        <h3>Integridad</h3>
+        <p>Actuamos con ética, transparencia y honestidad en todas nuestras relaciones.</p>
+      </div>
+      
+      <div class="valor-card">
+        <div class="valor-icon"><i class="fas fa-star"></i></div>
+        <h3>Excelencia</h3>
+        <p>Buscamos la mejora continua y la máxima calidad en cada proyecto.</p>
+      </div>
+      
+      <div class="valor-card">
+        <div class="valor-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>Innovación</h3>
+        <p>Promovemos soluciones creativas y adaptadas a cada desafío.</p>
+      </div>
+      
+      <div class="valor-card">
+        <div class="valor-icon"><i class="fas fa-users"></i></div>
+        <h3>Compromiso</h3>
+        <p>Nos entregamos por completo al éxito de nuestros clientes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="text-align: center;">
+    <h2>Certificaciones</h2>
+    <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2rem;">
+      <div style="text-align: center;">
+        <i class="fas fa-certificate" style="font-size: 4rem; color: var(--rojo-principal);"></i>
+        <p style="font-weight: bold; margin-top: 1rem;">ISO 9001:2015</p>
+      </div>
+      <div style="text-align: center;">
+        <i class="fas fa-shield-alt" style="font-size: 4rem; color: var(--rojo-principal);"></i>
+        <p style="font-weight: bold; margin-top: 1rem;">ISO 27001:2022</p>
+      </div>
+      <div style="text-align: center;">
+        <i class="fas fa-building" style="font-size: 4rem; color: var(--rojo-principal);"></i>
+        <p style="font-weight: bold; margin-top: 1rem;">ISO 19650</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <div class="footer-logo">R&M</div>
+      <p style="margin-bottom: 1rem;">Transformamos organizaciones a través de la excelencia en gestión por procesos.</p>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Enlaces Rápidos</h3>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <ul>
+        <li><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> +51 940534144 </li>
+        <li><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> fromanim@gmail.com </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="copyright">
+    <p>&copy; 2025 Consultoría R&M. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>
