@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios - Consultoría R&M</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --rojo-principal: #B00000;
+  --rojo-oscuro: #7A0000;
+  --rojo-claro: #E53935;
+  --gris-oscuro: #2E2E2E;
+  --gris-claro: #F7F7F7;
+  --blanco: #FFFFFF;
+  --gris-medio: #E0E0E0;
+  --dorado: #D4AF37;
+  --azul-profesional: #1A237E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--gris-oscuro);
+  line-height: 1.7;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #f1f3f5 50%, #e9ecef 75%, #f8f9fa 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo-principal), var(--gris-oscuro));
+  color: var(--blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  animation: fadeDown 1.2s ease;
+  border-bottom: 5px solid var(--dorado);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, var(--blanco), var(--dorado));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Navegación */
+nav {
+  background: linear-gradient(135deg, var(--blanco), var(--gris-claro));
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--rojo-principal);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--rojo-principal);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo i {
+  color: var(--dorado);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--rojo-principal);
+  font-weight: 600;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.nav-link:hover {
+  color: var(--rojo-oscuro);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--rojo-principal);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--blanco);
+  min-width: 220px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  z-index: 1;
+  padding: 0.5rem 0;
+  border-top: 3px solid var(--rojo-principal);
+  animation: fadeIn 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: var(--gris-oscuro);
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(176,0,0,0.05);
+  color: var(--rojo-principal);
+  border-left: 3px solid var(--rojo-principal);
+  padding-left: 1.5rem;
+}
+
+.dropdown-content a i {
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Main */
+main {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+/* Hero */
+.hero-servicios {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 5rem 3rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.hero-servicios h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--dorado);
+  border: none;
+}
+
+.hero-servicios p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Secciones */
+section {
+  background: var(--blanco);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-left: 6px solid var(--rojo-principal);
+  transition: transform 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+}
+
+h2 {
+  color: var(--rojo-principal);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--gris-medio);
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, var(--rojo-principal), var(--dorado));
+}
+
+/* Grid de servicios */
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.servicio-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border-top: 4px solid var(--rojo-principal);
+}
+
+.servicio-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(176,0,0,0.1);
+  border-top-color: var(--dorado);
+}
+
+.servicio-icon {
+  font-size: 3rem;
+  color: var(--rojo-principal);
+  margin-bottom: 1.5rem;
+}
+
+.servicio-card h3 {
+  color: var(--azul-profesional);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.servicio-card p {
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.servicio-features {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.servicio-features li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.servicio-features i {
+  color: var(--rojo-principal);
+}
+
+.btn-servicio {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, var(--rojo-principal), var(--rojo-claro));
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-servicio:hover {
+  background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo-principal));
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(176,0,0,0.3);
+}
+
+/* Paquetes */
+.paquetes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.paquete-card {
+  background: linear-gradient(135deg, #f9f9f9, white);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.paquete-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.paquete-card.destacado {
+  border: 2px solid var(--dorado);
+  transform: scale(1.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.paquete-card.destacado::before {
+  content: "RECOMENDADO";
+  position: absolute;
+  top: 20px;
+  right: -35px;
+  background: var(--dorado);
+  color: white;
+  padding: 0.5rem 3rem;
+  transform: rotate(45deg);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.paquete-header {
+  margin-bottom: 2rem;
+}
+
+.paquete-icon {
+  font-size: 2.5rem;
+  color: var(--rojo-principal);
+  margin-bottom: 1rem;
+}
+
+.paquete-card h3 {
+  color: var(--azul-profesional);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.precio {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--rojo-principal);
+  margin: 1rem 0;
+}
+
+.precio span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+}
+
+.paquete-features {
+  list-style: none;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.paquete-features li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-paquete {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--rojo-principal), var(--rojo-claro));
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.btn-paquete:hover {
+  background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo-principal));
+  transform: translateY(-3px);
+}
+
+/* Proceso */
+.proceso-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.proceso-item {
+  text-align: center;
+  position: relative;
+}
+
+.proceso-numero {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--rojo-principal), var(--rojo-claro));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 auto 1.5rem;
+}
+
+.proceso-item h3 {
+  color: var(--azul-profesional);
+  margin-bottom: 1rem;
+}
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, var(--rojo-principal), var(--rojo-oscuro));
+  color: white;
+  text-align: center;
+  padding: 4rem;
+  border-radius: 20px;
+}
+
+.cta-section h2 {
+  color: white;
+  border-bottom-color: rgba(255,255,255,0.2);
+}
+
+.cta-section h2::after {
+  background: white;
+}
+
+.cta-section .btn-cta {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--dorado);
+  color: var(--gris-oscuro);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.cta-section .btn-cta:hover {
+  background: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo-principal), var(--gris-oscuro));
+  color: var(--blanco);
+  padding: 4rem 2rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--dorado);
+}
+
+.footer-section h3 {
+  color: var(--dorado);
+  margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: var(--dorado);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: var(--dorado);
+  transform: translateY(-3px);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  
+  .hero-servicios h2 {
+    font-size: 2rem;
+  }
+  
+  section {
+    padding: 2rem;
+  }
+  
+  .paquete-card.destacado {
+    transform: scale(1);
+  }
+  
+  .proceso-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1><i class="fas fa-cogs"></i> Nuestros Servicios</h1>
+  <p>Soluciones integrales para optimizar su organización</p>
+</header>
+
+<nav>
+  <div class="nav-container">
+    <div class="nav-logo">
+      <i class="fas fa-chart-line"></i>
+      <span>R&M Consultoría</span>
+    </div>
+    
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+      
+      <li class="dropdown">
+        <a href="#" class="nav-link" style="color: var(--rojo-oscuro); font-weight: 700;">
+          <i class="fas fa-cogs"></i> Servicios <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-content">
+          <a href="#planeamiento"><i class="fas fa-chart-bar"></i> Planeamiento Estratégico</a>
+          <a href="#procesos"><i class="fas fa-project-diagram"></i> Optimización de Procesos</a>
+          <a href="#iso"><i class="fas fa-file-contract"></i> Sistemas ISO</a>
+          <a href="#digital"><i class="fas fa-digital-tachograph"></i> Transformación Digital</a>
+          <a href="#capacitacion"><i class="fas fa-graduation-cap"></i> Capacitación</a>
+          <a href="#auditorias"><i class="fas fa-search-dollar"></i> Auditorías</a>
+        </div>
+      </li>
+      
+      <li><a href="nosotros.html" class="nav-link"><i class="fas fa-users"></i> Nosotros</a></li>
+      <li><a href="contacto.html" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="hero-servicios">
+    <h2>Transformamos tu Negocio</h2>
+    <p>Confía en nosotros</p>
+  </div>
+
+  <section id="planeamiento">
+    <h2>Planeamiento Estratégico</h2>
+    <div class="servicios-grid">
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <i class="fas fa-bullseye"></i>
+        </div>
+        <h3>Diagnóstico Estratégico</h3>
+        <p>Análisis completo de la situación actual de su organización, identificando fortalezas, debilidades, oportunidades y amenazas.</p>
+        <ul class="servicio-features">
+          <li><i class="fas fa-check"></i> Análisis FODA</li>
+        </ul>
+        <a href="contacto.html" class="btn-servicio">Solicitar información</a>
+      </div>
+      
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Definición de Estrategia</h3>
+        <p>Desarrollo de planes estratégicos alineados con la visión y objetivos de su organización para los próximos 5 años.</p>
+        <ul class="servicio-features">
+          <li><i class="fas fa-check"></i> Visión y misión</li>
+          <li><i class="fas fa-check"></i> Objetivos estratégicos</li>
+        </ul>
+        <a href="contacto.html" class="btn-servicio">Solicitar información</a>
+      </div>
+      
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <i class="fas fa-tasks"></i>
+        </div>
+        <h3>Implementación y Seguimiento</h3>
+        <p>Acompañamiento en la ejecución del plan estratégico con métricas y ajustes continuos.</p>
+        <ul class="servicio-features">
+          <li><i class="fas fa-check"></i> Tablero de control</li>
+          <li><i class="fas fa-check"></i> Revisiones constantes</li>
+          <li><i class="fas fa-check"></i> Ajustes estratégicos</li>
+        </ul>
+        <a href="contacto.html" class="btn-servicio">Solicitar información</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="procesos">
+    <h2>Optimización de Procesos</h2>
+    <div class="servicios-grid">
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <i class="fas fa-project-diagram"></i>
+        </div>
+        <h3>Mapeo y Documentación</h3>
+        <p>Identificación y documentación de procesos críticos para su organización.</p>
+        <ul class="servicio-features">
+          <li><i class="fas fa-check"></i> Diagramas de flujo</li>
+          <li><i class="fas fa-check"></i> Procedimientos documentados</li>
+          <li><i class="fas fa-check"></i> Instructivos de trabajo</li>
+        </ul>
+        <a href="contacto.html" class="btn-servicio">Solicitar información</a>
+      </div>
+      
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3>Automatización</h3>
+        <p>Implementación de soluciones tecnológicas para automatizar procesos repetitivos.</p>
+        <ul class="servicio-features">
+          <li><i class="fas fa-check"></i> Integración de sistemas</li>
+        </ul>
+        <a href="contacto.html" class="btn-servicio">Solicitar información</a>
+      </div>
+      
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <i class="fas fa-chart-pie"></i>
+        </div>
+        <h3>Métricas e Indicadores</h3>
+        <p>Diseño de indicadores clave de rendimiento para medir eficiencia operativa.</p>
+        <ul class="servicio-features">
+          <li><i class="fas fa-check"></i> Tableros de control</li>
+          <li><i class="fas fa-check"></i> Análisis de capacidad</li>
+        </ul>
+        <a href="contacto.html" class="btn-servicio">Solicitar información</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="iso">
+    <h2>Sistemas de Gestión ISO</h2>
+    <div class="servicios-grid">
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <h3>ISO 9001:2015</h3>
+        <p>Implementación de sistemas de gestión de calidad con enfoque en mejora continua.</p>
+        <ul class="servicio-features">
+          <li><i class="fas fa-check"></i> Diagnóstico inicial</li>
+        </ul>
+        <a href="contacto.html" class="btn-servicio">Solicitar información</a>
+      </div>
+      
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>ISO 27001:2022</h3>
+        <p>Sistema de gestión de seguridad de la información para proteger sus activos digitales.</p>
+        <ul class="servicio-features">
+          <li><i class="fas fa-check"></i> Análisis de riesgos</li>
+          <li><i class="fas fa-check"></i> Políticas de seguridad</li>
+          <li><i class="fas fa-check"></i> Controles de seguridad</li>
+        </ul>
+        <a href="contacto.html" class="btn-servicio">Solicitar información</a>
+      </div>
+      
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <i class="fas fa-building"></i>
+        </div>
+        <h3>ISO 19650</h3>
+        <p>Gestión de información en proyectos de construcción con metodología BIM.</p>
+        <ul class="servicio-features">
+          <li><i class="fas fa-check"></i> Flujos de información</li>
+          <li><i class="fas fa-check"></i> Interoperabilidad</li>
+        </ul>
+        <a href="contacto.html" class="btn-servicio">Solicitar información</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="digital">
+    <h2>Transformación Digital</h2>
+    <div class="servicios-grid">      
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3>Análisis de datos</h3>
+        <p>Análisis de datos para la toma de decisiones basada en evidencia.</p>
+        <ul class="servicio-features">
+          <li><i class="fas fa-check"></i> Business Intelligence</li>
+          <li><i class="fas fa-check"></i> Dashboards interactivos</li>
+          <li><i class="fas fa-check"></i> Análisis predictivo</li>
+        </ul>
+        <a href="contacto.html" class="btn-servicio">Solicitar información</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>¿Listo para transformar su organización?</h2>
+    <p style="font-size: 1.2rem; margin-bottom: 2rem;">Contáctenos hoy mismo y reciba una consultoría inicial sin costo</p>
+    <a href="contacto.html" class="btn-cta"><i class="fas fa-calendar-check"></i> Agenda una reunión</a>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <div class="footer-logo">R&M</div>
+      <p style="margin-bottom: 1rem;">Transformamos organizaciones a través de la excelencia en gestión por procesos.</p>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Servicios</h3>
+      <ul>
+        <li><a href="#planeamiento">Planeamiento Estratégico</a></li>
+        <li><a href="#procesos">Optimización de Procesos</a></li>
+        <li><a href="#iso">Sistemas ISO</a></li>
+        <li><a href="#digital">Transformación Digital</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <ul>
+        <li><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> +51 940534144 </li>
+        <li><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> fromanim@gmail.com </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="copyright">
+    <p>&copy; 2025 Consultoría R&M. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>
